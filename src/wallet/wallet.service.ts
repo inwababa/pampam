@@ -55,24 +55,37 @@ export class WalletService {
 
         try {
 
+          //Assuming we have a third merchant Api to process the debit card we run the process first and await for the response before proceeding to fun the user wallet
+
             const user = await this.usersService.findUserById(userId);
         if (!user) {
             throw new HttpException('User not found', HttpStatus.NOT_FOUND);
         }
 
-        const wallets = await this.walletRepository.findOneOrFail({
+        let wallets = await this.walletRepository.findOne({
             where: { user: { id: user.id } },
           });
 
-        //console.log('User wallet:',wallets);
+          //Assuming we have a third merchant Api to process the debit card we run the process first and await for the response before proceeding to fun the user wallet
+
 
         if (!wallets) {
-            throw new HttpException('Wallet not found', HttpStatus.NOT_FOUND);
-          }
 
-    
-        // Create and save a transaction record using the TransactionService and FundWalletByCardDto
-        const transactionDto: TransactionDto = {
+          // Create a new wallet and associate it with the user
+        wallets = this.walletRepository.create({
+          user: user,
+          balance: fundWalletByCardDto.amount, // Set initial balance
+        });
+
+        await this.walletRepository.save(wallets);
+
+        // Associate the wallet with the user
+      user.wallet = wallets;
+      await this.usersService.updateUser(user);
+
+
+      // Create and save a transaction record using the TransactionService and FundWalletByCardDto
+      const transactionDto: TransactionDto = {
         amount: fundWalletByCardDto.amount,
         type: type,
         status: fundWalletByCardDto.status,
@@ -80,12 +93,26 @@ export class WalletService {
         narration: 'transaction processing'
       };
       await this.transactionService.createTransaction(user, transactionDto);
+
+      
+            return wallets
+          }
     
         // Update user's wallet balance
-    const wallet = user.wallet;
+    //const wallet = user.wallet;
      wallets.balance += fundWalletByCardDto.amount;
 
     await this.walletRepository.save(wallets);
+
+    // Create and save a transaction record using the TransactionService and FundWalletByCardDto
+    const transactionDto: TransactionDto = {
+      amount: fundWalletByCardDto.amount,
+      type: type,
+      status: fundWalletByCardDto.status,
+      reference: `funded-${userId}`,
+      narration: 'transaction processing'
+    };
+    await this.transactionService.createTransaction(user, transactionDto);
 
     return wallets;
             
