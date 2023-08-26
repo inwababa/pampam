@@ -11,6 +11,7 @@ import { WithdrawWalletDto } from './dto/withraw-wallet.dto';
 import { TransactionService } from 'src/transaction/transaction.service';
 import { TransactionDto } from 'src/transaction/dto/transaction.dto';
 import { Console } from 'console';
+import { FlutterwaveChargeCardDto } from './dto/charge-card.dto';
 
 @Injectable()
 export class WalletService {
@@ -51,11 +52,15 @@ export class WalletService {
       }
 
 
+      async flutterwaveChargeCard(payload: FlutterwaveChargeCardDto) {
+        //This function charges the user card
+    }
+
+
       async fundWalletByCard(userId: number, type: string, fundWalletByCardDto: FundWalletByCardDto): Promise<Wallet> {
 
         try {
 
-          //Assuming we have a third merchant Api to process the debit card we run the process first and await for the response before proceeding to fun the user wallet
 
             const user = await this.usersService.findUserById(userId);
         if (!user) {
@@ -70,6 +75,8 @@ export class WalletService {
 
 
         if (!wallets) {
+          //This call flutterwavechargecard function for processing, the response will be used to create a transaction.
+          //const funded = await this.flutterwaveChargeCard();
 
           // Create a new wallet and associate it with the user
         wallets = this.walletRepository.create({
