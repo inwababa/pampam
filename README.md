@@ -1,3 +1,8 @@
+This project was done using Node Js, NEST JS, TypeORM and MySQL.
+The project has Authorization and Authentication for users using JWT.
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
