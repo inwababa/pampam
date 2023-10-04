@@ -29,7 +29,34 @@ The project has Authorization and Authentication for users using JWT.
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Project Title: E-Wallet API with Authentication and Authorization.
+The E-Wallet API project is a robust and secure web service built using Nest.js and MySQL, designed to simulate e-wallet operations. This API provides functionalities for user authentication, authorization, and core e-wallet operations such as funding the wallet, checking the balance, and transferring cash between users.
+
+
+## Key Features:
+
+1. Authentication & Authorization Service:
+
+Create Account: Allows users to create an account by providing necessary details. User data is securely stored in a MySQL database.
+Login (JWT Token Support): Provides JWT (JSON Web Token) authentication, ensuring secure access to the e-wallet functionalities upon successful login.
+Reset Password: Enables users to reset their passwords securely when needed.
+
+2. E-Wallet System:
+
+Fund Wallet (Simulate Using Debit Card): Users can fund their e-wallet accounts, simulating the process using debit card information. This operation ensures that the user's e-wallet balance is updated accordingly.
+Check Balance: Allows users to check their e-wallet balance, providing real-time information about their available funds.
+Transfer Cash: Enables users to transfer funds between e-wallet accounts. Authorization checks are in place to ensure that only authorized users can initiate transfers.
+
+## Additional Features:
+
+Swagger UI Integration: The project integrates Swagger UI, providing an interactive API documentation that allows developers and users to understand and test the API endpoints easily.
+
+## Technology Stack:
+
+Nest.js: A powerful Node.js framework for building scalable and maintainable web applications.
+MySQL: A reliable relational database for storing user and transaction data.
+Swagger UI: For interactive API documentation.
+JWT: JSON Web Tokens for secure authentication.
 
 ## Installation
 
