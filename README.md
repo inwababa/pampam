@@ -37,15 +37,15 @@ The E-Wallet API project is a robust and secure web service built using Nest.js 
 
 1. Authentication & Authorization Service:
 
-i. Create Account: Allows users to create an account by providing necessary details. User data is securely stored in a MySQL database.
-ii. Login (JWT Token Support): Provides JWT (JSON Web Token) authentication, ensuring secure access to the e-wallet functionalities upon successful login.
-iii. Reset Password: Enables users to reset their passwords securely when needed.
+- Create Account: Allows users to create an account by providing necessary details. User data is securely stored in a MySQL database.
+- Login (JWT Token Support): Provides JWT (JSON Web Token) authentication, ensuring secure access to the e-wallet functionalities upon successful login.
+- Reset Password: Enables users to reset their passwords securely when needed.
 
 2. E-Wallet System:
 
-Fund Wallet (Simulate Using Debit Card): Users can fund their e-wallet accounts, simulating the process using debit card information. This operation ensures that the user's e-wallet balance is updated accordingly.
-Check Balance: Allows users to check their e-wallet balance, providing real-time information about their available funds.
-Transfer Cash: Enables users to transfer funds between e-wallet accounts. Authorization checks are in place to ensure that only authorized users can initiate transfers.
+- Fund Wallet (Simulate Using Debit Card): Users can fund their e-wallet accounts, simulating the process using debit card information. This operation ensures that the user's e-wallet balance is updated accordingly.
+- Check Balance: Allows users to check their e-wallet balance, providing real-time information about their available funds.
+- Transfer Cash: Enables users to transfer funds between e-wallet accounts. Authorization checks are in place to ensure that only authorized users can initiate transfers.
 
 ## Additional Features:
 
@@ -53,10 +53,10 @@ Swagger UI Integration: The project integrates Swagger UI, providing an interact
 
 ## Technology Stack:
 
-Nest.js: A powerful Node.js framework for building scalable and maintainable web applications.
-MySQL: A reliable relational database for storing user and transaction data.
-Swagger UI: For interactive API documentation.
-JWT: JSON Web Tokens for secure authentication.
+- Nest.js: A powerful Node.js framework for building scalable and maintainable web applications.
+- MySQL: A reliable relational database for storing user and transaction data.
+- Swagger UI: For interactive API documentation.
+- JWT: JSON Web Tokens for secure authentication.
 
 ## Installation
 
