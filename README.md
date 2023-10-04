@@ -37,9 +37,9 @@ The E-Wallet API project is a robust and secure web service built using Nest.js 
 
 1. Authentication & Authorization Service:
 
-Create Account: Allows users to create an account by providing necessary details. User data is securely stored in a MySQL database.
-Login (JWT Token Support): Provides JWT (JSON Web Token) authentication, ensuring secure access to the e-wallet functionalities upon successful login.
-Reset Password: Enables users to reset their passwords securely when needed.
+i. Create Account: Allows users to create an account by providing necessary details. User data is securely stored in a MySQL database.
+ii. Login (JWT Token Support): Provides JWT (JSON Web Token) authentication, ensuring secure access to the e-wallet functionalities upon successful login.
+iii. Reset Password: Enables users to reset their passwords securely when needed.
 
 2. E-Wallet System:
 
